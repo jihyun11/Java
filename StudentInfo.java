@@ -3,7 +3,7 @@ public class StudentInfo {
         Student jihyun = new Student();
         jihyun.setName("jihyun");
         jihyun.setAge(23);
-        jihyun.setGrade(3);
+        jihyun.setGrade(4);
 
         System.out.println(jihyun.getName());
         System.out.println(jihyun.getAge());
