@@ -1,52 +1,40 @@
 import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
 
 public class Test {
-    public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
+        public static void main(String[] args) {
+            List<String> list = new ArrayList<>();
+            list.add("고양이");
+            list.add("고양이");
+            list.add("고양이");
+            list.add("고양이");
+            list.add("사자");
+            list.add("사자");
+            list.add("사자");
+            list.add("사자");
+            list.add("표범");
+            list.add("표범");
+            list.add("표범");
+            list.add("표범");
 
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(2);
-        list.add(2);
-        list.add(2);
-        list.add(3);
-        list.add(3);
-        list.add(3);
+            HashMap<String, Integer> map = new HashMap<String, Integer>();
 
-        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+            for (int i = 0; i <list.size(); i++) {
+                if (map.containsKey(list.get(i))) {
+                    map.put(list.get(i), map.get(list.get(i)) + 1);
+                } else {
+                    map.put(list.get(i), 1);
+                }
 
-        for (int i = 0; i < list.size(); i++) { //map에 키값 밸류값을 넣는 for문
-
-            if (map.containsKey(list.get(i))) {
-                map.put(list.get(i), map.get(list.get(i))+1);
-            } else {
-                map.put(list.get(i), 1);
             }
+            Set<String> keys = map.keySet();
+            for (String key : keys) {
+                System.out.println(key + " : " + map.get(key) + "개");
+            }
+
+            // list에 있는 값들이 중복이 안되도록 출력하기
+
+            // 각 값들이 몇개씩 있는지 출력하기
         }
-
-        System.out.println(map);
-
-
-        System.out.println(map.get(1) + " " + map.containsKey(1));
-
-        Set<Integer> keys = map.keySet();
-        for (int key : keys) {
-            System.out.println(key + " : " + map.get(key) + "개");
-        }
-
-
-
-
-
-        // 중복되는 값들이 몇개씩 있는지 출력해보자.(꼭 아래와 같이 출력하지 않아도 된다.)
-        // ex) 1 : 4개, 2 : 3개, 3: 3개
-        //     }
     }
-
-}
