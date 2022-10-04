@@ -7,16 +7,18 @@ public class Highest {
 
         String big = array[0];
         String small = array[0];
+        String max = "";
+        String min = "";
 
         for(int i = 0; i < array.length; i++) {
             if (Integer.parseInt(big) <= Integer.parseInt(array[i])) {
-                big = array[i];
+                max = array[i]; // max와 big은 다른 변수 아님?
             } else if (Integer.parseInt(small) >= Integer.parseInt(array[i]) ) {
-                small = array[i];
+                min = array[i];
             }
         }
 
-        System.out.println((big + " " + small));
+        System.out.println((max + " " + min));
     }
 
 
