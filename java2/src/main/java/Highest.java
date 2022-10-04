@@ -1,6 +1,6 @@
 public class Highest {
     public static void main(String[] args) {
-        String numbers = "5 4 3 2 1";
+        String numbers = "5 4 3 2 1 0";
 
         String[] array = numbers.split(" ");
 
