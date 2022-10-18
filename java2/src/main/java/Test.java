@@ -1,5 +1,8 @@
 import java.sql.SQLOutput;
 import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 
 public class Test {
@@ -18,22 +21,24 @@ public class Test {
         list.add("표범");
         list.add("표범");
 
-        HashMap<String, Integer> map = new HashMap<>();
+        System.out.println(list.stream().distinct().collect(Collectors.groupingBy(Function.identity(), Collectors.counting())));
 
-        for (int i = 0; i < list.size(); i++) {
-            if (map.containsKey(list.get(i))) {
-                map.put(list.get(i), map.get(list.get(i)) + 1 );
-            } else {
-                map.put(list.get(i), 1);
-            }
-        }
-
-        Set<String> set = map.keySet();
-
-        for (String key: set){
-            System.out.println(key + " : " + map.get(key) + "개");
-
-        }
+//        HashMap<String, Integer> map = new HashMap<>();
+//
+//        for (int i = 0; i < list.size(); i++) {
+//            if (map.containsKey(list.get(i))) {
+//                map.put(list.get(i), map.get(list.get(i)) + 1 );
+//            } else {
+//                map.put(list.get(i), 1);
+//            }
+//        }
+//
+//        Set<String> set = map.keySet();
+//
+//        for (String key: set){
+//            System.out.println(key + " : " + map.get(key) + "개");
+//
+//        }
 
 
         // list에 있는 값들이 중복이 안되도록 출력하기
