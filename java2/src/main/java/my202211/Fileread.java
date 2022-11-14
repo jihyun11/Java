@@ -13,9 +13,11 @@ public class Fileread {
         BufferedReader br = new BufferedReader(new FileReader(file));
 
         String brr = "";
-        HashMap<String, Integer> map = null;
+
+        HashMap<String, Integer> map = new HashMap<>();
+
         while ((brr = br.readLine()) != null) {
-            map = new HashMap<>();
+            
 
             if (map.containsKey(brr)) {
                 map.put(brr, map.get(brr) + 1);
