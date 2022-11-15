@@ -17,7 +17,7 @@ public class Fileread {
         HashMap<String, Integer> map = new HashMap<>();
 
         while ((brr = br.readLine()) != null) {
-            
+
 
             if (map.containsKey(brr)) {
                 map.put(brr, map.get(brr) + 1);
