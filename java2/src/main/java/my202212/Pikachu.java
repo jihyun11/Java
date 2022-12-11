@@ -1,9 +1,10 @@
 package my202212;
 
-public class Pikachu {
-    public void pickachu() {
-        String electric = "전기!!!";
-        System.out.println(electric);
-    }
+public class Pikachu implements Pokemon{
+    @Override
+    public void skill() {
+        String elec = "전기!!!";
+        System.out.println(elec);
 
+    }
 }

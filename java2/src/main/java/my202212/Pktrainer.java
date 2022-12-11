@@ -1,14 +1,15 @@
 package my202212;
 
 public class Pktrainer {
-    Pikachu pk;
+    Pokemon pk;
 
-    public Pktrainer(Pikachu pk) {
+    public Pktrainer(Pokemon pk) {
         this.pk = pk;
     }
 
-    public void Pkgo() {
-        pk.pickachu();
+    public void pkGo() {
+        pk.skill();
     }
+
 
 }
