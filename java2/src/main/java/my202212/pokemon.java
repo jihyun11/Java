@@ -1,6 +1,5 @@
 package my202212;
 
-public interface Pokemon {
+public interface pokemon {
     public void skill();
-
 }

@@ -2,19 +2,25 @@ package my202212;
 
 public class Pkmain {
     public static void main(String[] args) {
-        longs ston = new longs();
-        Pktrainer pt = new Pktrainer(ston);
-
-
-        pt.pkGo();
-
         Pikachu pk = new Pikachu();
-        Pktrainer ptg = new Pktrainer(pk);
+        Pktrain pt = new Pktrain(pk);
 
-        ptg.pkGo();
+        pt.PkGo();
 
+        longs ln = new longs();
+        Pktrain pkt = new Pktrain(ln);
 
+        pkt.PkGo();
 
+        Pijo pj = new Pijo();
+        Pktrain pktr = new Pktrain(pj);
+
+        pktr.PkGo();
+
+        Gas gs = new Gas();
+        Pktrain pktra = new Pktrain(gs);
+
+        pktra.PkGo();
 
 
     }
