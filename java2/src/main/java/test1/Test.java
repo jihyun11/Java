@@ -24,6 +24,10 @@ public class Test {
         cm.child();
         cm.hello();
 
+        MathUtil3 mt3 = new MathUtil3();
+        int myResult = mt3.myNumber(6);
+        System.out.println(myResult);
+
 
 
 
