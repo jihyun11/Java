@@ -28,6 +28,10 @@ public class Test {
         int myResult = mt3.myNumber(6);
         System.out.println(myResult);
 
+        MathUtil3 mt4 = new MathUtil3();
+        String realSave = mt4.thankU("어디 해보거라~");
+        System.out.println(realSave);
+
 
 
 

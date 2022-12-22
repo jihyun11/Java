@@ -10,4 +10,15 @@ public class MathUtil3 {
         return sum;
 
     }
+
+    public String thankU(String save) {
+        String s = "";
+        if (save == "어디 해보거라~") {
+            s = "파워 세배!!!!";
+
+        }
+        else return "시작 말씀을 다시 해주세요~!";
+        return s;
+    }
+
 }
