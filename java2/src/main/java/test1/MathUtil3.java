@@ -1,13 +1,13 @@
 package test1;
 
 public class MathUtil3 {
-    public int myNumber(int a) {
-        int sum = 0;
-        for (int i = 0; i < a + 1; i++) {
-            sum += i;
-        }
+    public int myNumber(int n) {
+//        int sum = 0;
+//        for (int i = 0; i < a + 1; i++) {
+//            sum += i;
+//        }
 
-        return sum;
+        return (n + 1) * n / 2;
 
     }
 
