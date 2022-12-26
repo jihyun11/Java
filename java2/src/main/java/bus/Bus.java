@@ -4,7 +4,7 @@ import test3.Person;
 
 import java.util.ArrayList;
 
-public class bus {
+public class Bus {
     private ArrayList<Person> persons = new ArrayList<>();
 
 
