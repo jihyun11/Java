@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class HiBus {
     private ArrayList<Passenger> pslist = new ArrayList<>();
-    private ArrayList<BusPassenger> pslist2 = new ArrayList<>();
+    private ArrayList<BusPassenger> pslist2 = new ArrayList<>(0);
 
     public void ride(Passenger passenger) {
         pslist.add(passenger);
