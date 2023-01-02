@@ -8,6 +8,9 @@ public class Main {
         Apple ap = Apple.newins();
         ap.print();
 
+        Banana bn = Banana.newinstan();
+        bn.print();
+
 
 
     }
