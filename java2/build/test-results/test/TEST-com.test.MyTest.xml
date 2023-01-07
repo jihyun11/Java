@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.test.MyTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-07T05:59:42" hostname="m.local" time="0.018">
+  <properties/>
+  <testcase name="test()" classname="com.test.MyTest" time="0.018"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
