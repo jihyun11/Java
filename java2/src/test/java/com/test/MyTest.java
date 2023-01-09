@@ -25,10 +25,18 @@ public class MyTest {
 
     public static class Solution { //순차탐색
         public static int findIndex(List<Integer> arrayList, int searchValue) {
-            for(int i = 0; i < arrayList.size(); i++) {
-                if(arrayList.get(i) == searchValue) {
-                    return i;
+            int left = 0;
+            int right = arrayList.size();
+            int mid;
+
+            while (left <= right) {
+                mid = (left + right) / 2;
+                if (arrayList.get(mid) < searchValue) {
+                    left = mid + 1;
+                } else if (arrayList.get(mid) > searchValue) {
+                    right = mid - 1;
                 }
+                else return arrayList.get(mid);
             }
             return -1;
         }
