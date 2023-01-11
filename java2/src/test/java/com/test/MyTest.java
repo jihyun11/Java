@@ -20,12 +20,12 @@ public class MyTest {
         // searchValue가 몇번째에 위치해있는지 확인하는 함수
         int index = Solution.findIndex(arrayList, searchValue);
 
-        Assertions.assertEquals(index, 49);
+        Assertions.assertEquals(index, 50);
     }
 
     public static class Solution { //순차탐색
         public static int findIndex(List<Integer> arrayList, int searchValue) {
-            int left = 0;
+            int left = 1;
             int right = arrayList.size();
             int mid;
 
