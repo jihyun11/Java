@@ -13,31 +13,20 @@ public class ChatServer {
     void listen() throws IOException {
         ServerSocket serverSocket = new ServerSocket(9999);
 
-
-
-
-        while (true) {
-            try {
+        try {
+            while (true) {
                 Socket socket = serverSocket.accept();
                 InputStreamReader inputStreamReader = new InputStreamReader(socket.getInputStream());
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
                 while (true) {
-
                     String msg = bufferedReader.readLine();
 
                     System.out.println(msg);
                 }
-
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-
-    }
-
-    public static void main(String[] args) throws IOException {
-        ChatServer chat = new ChatServer();
-        chat.listen();
     }
 }
