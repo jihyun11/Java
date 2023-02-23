@@ -1,6 +1,5 @@
 package chat2;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
@@ -20,7 +19,7 @@ public class Client {
 
             printWriter.println(message);
             printWriter.flush();
-
         }
+
     }
 }
