@@ -20,6 +20,5 @@ public class Client {
             printWriter.println(message);
             printWriter.flush();
         }
-
     }
 }
