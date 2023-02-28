@@ -5,6 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ChatServer {
+
     void listen() throws IOException {
         ServerSocket serverSocket = new ServerSocket(9999);
 
@@ -17,12 +18,10 @@ public class ChatServer {
                 OutputStream outputStream = socket.getOutputStream();
                 PrintWriter printWriter = new PrintWriter(outputStream);
 
-
                 while (true) {
                     String msg = bufferedReader.readLine();
 
                     System.out.println(msg);
-
                     printWriter.println(msg);
                     printWriter.flush();
                 }
@@ -31,4 +30,5 @@ public class ChatServer {
             throw new RuntimeException(e);
         }
     }
+
 }

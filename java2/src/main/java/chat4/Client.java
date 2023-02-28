@@ -15,7 +15,7 @@ public class Client {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try{
+                try {
                     InputStreamReader inputStreamReader = new InputStreamReader(socket.getInputStream());
                     BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
