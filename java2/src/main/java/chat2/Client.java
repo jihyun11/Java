@@ -20,12 +20,12 @@ public class Client {
                     BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
                     while (true) {
-                        String msg = bufferedReader.readLine();
+                        String message = bufferedReader.readLine();
 
-                        System.out.println(msg);
+                        System.out.println(message);
                     }
 
-                } catch (IOException e) {
+                } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
             }
@@ -36,6 +36,8 @@ public class Client {
 
             printWriter.println(message);
             printWriter.flush();
+
         }
     }
+
 }
