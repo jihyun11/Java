@@ -1,9 +1,6 @@
 package chat3;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
@@ -16,11 +13,31 @@ public class Client {
         OutputStream outputStream = socket.getOutputStream();
         PrintWriter printWriter = new PrintWriter(outputStream);
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    InputStreamReader inputStreamReader = new InputStreamReader(socket.getInputStream());
+                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+                    while (true) {
+                        String message = bufferedReader.readLine();
+
+                        System.out.println(message);
+
+                    }
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }).start();
+
         while (true) {
             String message = scanner.nextLine();
 
             printWriter.println(message);
             printWriter.flush();
         }
+
     }
 }

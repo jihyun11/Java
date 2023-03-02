@@ -1,29 +1,32 @@
 package chat3;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ChatServer {
-
-    void listen2() throws IOException {
+    void listen2me() throws IOException {
         ServerSocket serverSocket = new ServerSocket(9999);
 
-        while (true) {
-            try {
+        try {
+            while (true) {
                 Socket socket = serverSocket.accept();
                 InputStreamReader inputStreamReader = new InputStreamReader(socket.getInputStream());
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
+                OutputStream outputStream = socket.getOutputStream();
+                PrintWriter printWriter = new PrintWriter(outputStream);
+
                 while (true) {
                     String msg = bufferedReader.readLine();
+
                     System.out.println(msg);
+                    printWriter.println(msg);
+                    printWriter.flush();
                 }
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

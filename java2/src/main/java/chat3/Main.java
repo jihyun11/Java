@@ -5,6 +5,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         ChatServer chatServer = new ChatServer();
-        chatServer.listen2();
+        chatServer.listen2me();
     }
+
 }
