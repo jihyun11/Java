@@ -7,5 +7,4 @@ public class Main {
         ChatServer chatServer = new ChatServer();
         chatServer.listen();
     }
-
 }
