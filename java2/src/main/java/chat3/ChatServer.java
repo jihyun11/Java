@@ -1,29 +1,27 @@
 package chat3;
 
+import chat2.ConnectClient;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ChatServer {
-    void listen2me() throws IOException {
+
+    void chatting() throws IOException {
         ServerSocket serverSocket = new ServerSocket(9999);
+        List<Socket> list = new ArrayList<>();
 
         try {
             while (true) {
                 Socket socket = serverSocket.accept();
-                InputStreamReader inputStreamReader = new InputStreamReader(socket.getInputStream());
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                list.add(socket);
 
-                OutputStream outputStream = socket.getOutputStream();
-                PrintWriter printWriter = new PrintWriter(outputStream);
+                System.out.println("connect -> " + socket.toString());
 
-                while (true) {
-                    String msg = bufferedReader.readLine();
-
-                    System.out.println(msg);
-                    printWriter.println(msg);
-                    printWriter.flush();
-                }
+                new Thread(new ConnectClient(socket, list)).start();
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
