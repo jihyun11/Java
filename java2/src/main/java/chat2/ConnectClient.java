@@ -9,10 +9,12 @@ public class ConnectClient implements Runnable {
     Socket socket;
     List<Socket> list;
 
+
     public ConnectClient(Socket socket, List<Socket> list) {
         this.socket = socket;
         this.list = list;
     }
+
 
     @Override
     public void run() {
@@ -21,20 +23,18 @@ public class ConnectClient implements Runnable {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
             while (true) {
-                String msg = bufferedReader.readLine();
+                String message = bufferedReader.readLine();
 
                 for (int i = 0; i < list.size(); i++) {
-                    OutputStream outputStream = list.get(i).getOutputStream();
+                    OutputStream outputStream = socket.getOutputStream();
                     PrintWriter printWriter = new PrintWriter(outputStream);
 
-                    printWriter.println(msg);
+                    printWriter.println(printWriter);
                     printWriter.flush();
                 }
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 }
