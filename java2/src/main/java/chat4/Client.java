@@ -20,9 +20,9 @@ public class Client {
                     BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
                     while (true) {
-                        String msg = bufferedReader.readLine();
+                        String message = bufferedReader.readLine();
 
-                        System.out.println(msg);
+                        System.out.println(message);
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
