@@ -26,7 +26,7 @@ public class ConnectClient implements Runnable {
                 String message = bufferedReader.readLine();
 
                 for (int i = 0; i < list.size(); i++) {
-                    OutputStream outputStream = socket.getOutputStream();
+                    OutputStream outputStream = list.get(i).getOutputStream();
                     PrintWriter printWriter = new PrintWriter(outputStream);
 
                     printWriter.println(printWriter);
