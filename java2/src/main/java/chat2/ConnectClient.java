@@ -7,14 +7,13 @@ import java.util.List;
 public class ConnectClient implements Runnable {
 
     Socket socket;
-    List<Socket> list;
 
+    List<Socket> list;
 
     public ConnectClient(Socket socket, List<Socket> list) {
         this.socket = socket;
         this.list = list;
     }
-
 
     @Override
     public void run() {
@@ -23,10 +22,12 @@ public class ConnectClient implements Runnable {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
             while (true) {
-                String message = bufferedReader.readLine();
+                String msg = bufferedReader.readLine();
 
                 for (int i = 0; i < list.size(); i++) {
-                    OutputStream outputStream = list.get(i).getOutputStream();
+                    Socket socket1 = list.get(i);
+
+                    OutputStream outputStream = socket1.getOutputStream();
                     PrintWriter printWriter = new PrintWriter(outputStream);
 
                     printWriter.println(printWriter);
