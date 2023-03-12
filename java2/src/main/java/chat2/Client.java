@@ -20,9 +20,9 @@ public class Client {
                     BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
                     while (true) {
-                        String mseg = bufferedReader.readLine();
+                        String msg = bufferedReader.readLine();
 
-                        System.out.println(mseg);
+                        System.out.println(msg);
                     }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
@@ -31,10 +31,11 @@ public class Client {
         }).start();
 
         while (true) {
-            String mseg = scanner.nextLine();
+            String msg = scanner.nextLine();
 
-            printWriter.println(mseg);
+            printWriter.println(msg);
             printWriter.flush();
         }
+
     }
 }
