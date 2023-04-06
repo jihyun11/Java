@@ -84,6 +84,7 @@ public class MyKeyEventLabel extends JFrame implements ActionListener, MouseList
         Object obj = e.getSource();
         if (obj == label) {
             contentPane.setBackground(Color.yellow);
+
         }
 
     }
