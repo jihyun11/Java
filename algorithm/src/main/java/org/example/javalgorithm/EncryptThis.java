@@ -19,9 +19,7 @@ public class EncryptThis {
 
 
 
-//        for (int i = 0; i < array.length; i++) {
-//
-//        }
+
     }
 
 
