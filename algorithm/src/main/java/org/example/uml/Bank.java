@@ -11,9 +11,7 @@ public class Bank {
     }
 
     public boolean updateUser(User user) {
-        for (int i = 0; i < users.size(); i++) {
-            if (users)
-        }
+        return true;
     }
 
     public boolean deleteUser(String id) {

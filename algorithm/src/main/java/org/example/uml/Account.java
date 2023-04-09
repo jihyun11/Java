@@ -7,7 +7,7 @@ public class Account {
 
     public double deposit(String id, double inMoney) {
         User user = new User();
-        boolean checkUser = user.searchUser("hong");
+        boolean checkUser = user.searchUser(id);
 
         if (checkUser) {
             this.balance = this.balance + inMoney;
