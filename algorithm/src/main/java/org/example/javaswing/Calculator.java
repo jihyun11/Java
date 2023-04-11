@@ -23,11 +23,13 @@ public class Calculator extends JFrame implements ActionListener {
 
 
         jf = new JTextField("", 20);
-        jf.setBounds(200, 200, 200, 300);
+        jf.setEditable(false);
+        jf.setHorizontalAlignment(JTextField.RIGHT);
         add(jf);
+        jf.requestFocus();
 
         JPanel jPanel = new JPanel();
-        jPanel.setLayout(new GridLayout(5, 4));
+        jPanel.setLayout(new GridLayout(5, 4, 3, 3));
 
         jButton = new JButton("<-");
         jButton.addActionListener(this);
@@ -71,6 +73,8 @@ public class Calculator extends JFrame implements ActionListener {
         jPanel.add(jButtonRe);
         JButton jButtonP = new JButton("+");
         jPanel.add(jButtonP);
+
+
 
 
 
