@@ -36,6 +36,8 @@ public class MyEditor extends JFrame implements ActionListener  {
     private JTextArea textArea;
     private JMenuItem itemSave;
 
+    private JMenuItem itemApp;
+
     public MyEditor(String title) {
         setTitle(title);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,8 +96,9 @@ public class MyEditor extends JFrame implements ActionListener  {
 
         menuOption.addSeparator();
 
-        JMenuItem itemColor = new JMenuItem("Color");
-        menuOption.add(itemColor);
+        itemApp = new JMenuItem("App");
+        itemApp.addActionListener(this);
+        menuOption.add(itemApp);
 
         bar.add(menuOption);
 
@@ -177,6 +180,8 @@ public class MyEditor extends JFrame implements ActionListener  {
                     e1.printStackTrace();
                 }
             }
+        } else if (obj == itemApp) {
+            new FirstForm("FristForm");
         }
 
     }
