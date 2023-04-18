@@ -1,16 +1,15 @@
-package org.example.javaswing;
+package org.example.javaswing.component;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ChatClientFrom extends JFrame implements ActionListener {
+public class ChatClientForm extends JFrame implements ActionListener {
 
     private JTextArea ta;
     private JTextField tf;
-
-    public ChatClientFrom(String title) {
+    public ChatClientForm(String title) {
         setTitle(title);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300, 350);
@@ -18,8 +17,8 @@ public class ChatClientFrom extends JFrame implements ActionListener {
         setLayout(new BorderLayout());
 
         setPanCenter();
-        setPanSouth();
 
+        setPanSouth();
 
         setVisible(true);
 
@@ -27,32 +26,15 @@ public class ChatClientFrom extends JFrame implements ActionListener {
         tf.requestFocus();
     }
 
-    private void setPanSouth() {
-
-
-        JPanel panSouth = new JPanel();
-        panSouth.setBackground(Color.YELLOW);
-
-        tf = new JTextField(17);
-        tf.addActionListener(this);
-        panSouth.add(tf);
-
-        JButton sendbtn = new JButton("보내기");
-        sendbtn.addActionListener(this);
-        panSouth.add(sendbtn);
-
-        add(panSouth, BorderLayout.SOUTH);
-    }
-
     private void setPanCenter() {
         JPanel panCenter = new JPanel();
         panCenter.setLayout(new BorderLayout());
         panCenter.setBackground(Color.BLUE);
 
-
         ta = new JTextArea(8, 15);
         ta.setLineWrap(true);
         ta.setEditable(false);
+
         JScrollPane sp = new JScrollPane(ta,
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -61,18 +43,34 @@ public class ChatClientFrom extends JFrame implements ActionListener {
         add(panCenter, BorderLayout.CENTER);
     }
 
+    private void setPanSouth() {
+        JPanel panSouth = new JPanel();
+
+        tf = new JTextField(14);
+        tf.addActionListener(this);
+        panSouth.add(tf);
+
+        JButton sendBtn = new JButton("전송");
+        sendBtn.addActionListener(this);
+        sendBtn.setPreferredSize(new Dimension(100, 25));
+        panSouth.add(sendBtn);
+
+        add(panSouth, BorderLayout.SOUTH);
+    }
+
     public static void main(String[] args) {
-
-        new ChatClientFrom("ChatClientForm");
-
+        new ChatClientForm("ChatClientForm");
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ta.append("[메시지] : " + tf.getText() + "\n");
-        tf.setText("");
-        tf.requestFocus();
+        Object obj = e.getSource();
+        ta.append("[메시지]: " + tf.getText() + "\n");
 
+        if (obj == tf) {
+            tf.setText("");
+            tf.requestFocus();
+
+        }
     }
-
 }
