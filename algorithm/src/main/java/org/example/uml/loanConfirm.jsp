@@ -16,8 +16,8 @@
 <%--		String 상환예정일 = request.getParameter("_expecteddate");--%>
 <%--		--%>
 <%--	%>--%>
-	<h1>대출금액: <%= String.format("%.1f", loan.대출(주민번호, 주소, Integer.parseInt(대출일), Integer.parseInt(상환예정일))) %></h1>
-	<a href="index.jsp">처음으로</a>
+<%--	<h1>대출금액: <%= String.format("%.1f", loan.대출(주민번호, 주소, Integer.parseInt(대출일), Integer.parseInt(상환예정일))) %></h1>--%>
+<%--	<a href="index.jsp">처음으로</a>--%>
 
 
 </body>
