@@ -11,7 +11,6 @@ public class FirstForm extends JFrame implements ActionListener {
 
     private JTextField textField;
 
-    private FirstForm firstForm;
 
     private SecondForm secondForm;
 
