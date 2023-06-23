@@ -9,30 +9,34 @@ public class ChatServer {
     public static void main(String[] args) {
         ServerSocket listener = null;
         Socket socket = null;
+
         BufferedReader in = null;
         BufferedWriter out = null;
+
         Scanner scan = new Scanner(System.in);
+
         try {
-            listener = new ServerSocket(9999);
-            System.out.println("연결을 기다립니다...");
+            listener = new ServerSocket(9000);
+            System.out.println("연결을 기다립니다.....");
             socket = listener.accept();
-            System.out.println("연결이 되었습니다.");
+            System.out.println("연결 되었습니다.");
 
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-            while (true) {
+            while(true) {
                 String inMsg = in.readLine();
                 System.out.println(inMsg);
 
-                System.out.println("보내기 >> ");
+                System.out.print("보내기 >>> ");
                 String outMsg = scan.nextLine();
                 out.write(outMsg + "\n");
                 out.flush();
             }
 
+
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } finally {
             try {
                 out.close();
@@ -41,8 +45,10 @@ public class ChatServer {
                 socket.close();
                 listener.close();
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
         }
+
     }
+
 }
