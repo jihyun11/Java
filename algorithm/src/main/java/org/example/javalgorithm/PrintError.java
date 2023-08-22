@@ -12,7 +12,7 @@ public class PrintError {
             }
         }
 
-        String result = error + "/" + s.length();
+        String result = error + "/" + s.length(); //m보다 뒤에 있는 수 비율 구하기
         System.out.println(result);
     }
 }
