@@ -17,14 +17,14 @@ public class coinChange {
         }
 
         return count[sum];
-    }
+    } //입력과 출력을 담당하는 메소드
 
     public static List<List<Integer>> findCoinChange(int[] coins, int sum) {
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> current = new ArrayList<>();
         backtrack(coins, sum, 0, current, result);
         return result;
-    }
+    } //백트래킹을 준비하는 메소드
 
     private static void backtrack(int[] coins, int remain, int start, List<Integer> current, List<List<Integer>> result) {
         if (remain == 0) {
@@ -40,5 +40,7 @@ public class coinChange {
             backtrack(coins, remain - coins[i], i, current, result);
             current.remove(current.size() - 1);
         }
+    } //설명을 담당하는 메소드
+
     }
-}
+    //동적 프로그래밍과 백트래킹 사용
