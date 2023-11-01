@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
-
+//TCP/IP 채팅프로그램 클라이언트
 public class ChatClient {
     public static void main(String[] args) {
 
