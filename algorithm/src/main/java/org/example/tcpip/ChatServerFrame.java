@@ -6,11 +6,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
@@ -23,7 +19,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
-
+import java.net.*;
 public class ChatServerFrame extends JFrame implements ActionListener {
 
     private JTextArea ta;
@@ -112,20 +108,13 @@ public class ChatServerFrame extends JFrame implements ActionListener {
 
         if (!tf.getText().equals("")) {
             String outMsg = tf.getText();
-//            try {
-//                out.write(outMsg + "\n");
-//                out.flush();
-//            } catch (IOException e1) {
-//                e1.printStackTrace();
-//            }
-
 
             String lastChar = getLastCharacter(nowMsg()); // 클라이언트 단어의 마지막 글자
             String firstChar = getFirstCharacter(tf.getText()); // 서버가 보낸 단어의 첫글자
 
             if (lastChar.equals(firstChar)) { // 클라이언트에서 받은 단어의 마지막 글자 == 서버에서 보낼 단어의 첫번째 글자
 
-                if(outMsg.length() >= 2) {
+                if (outMsg.length() >= 2) {
                     try {
                         out.write(outMsg + "\n");
                         out.flush();
@@ -140,27 +129,33 @@ public class ChatServerFrame extends JFrame implements ActionListener {
                 }
 
 
-
-
-            }  else {
+            } else {
                 incorrectCount++; // 어긋난 단어 횟수 증가
 
                 if (incorrectCount == 1) { // 어긋난 횟수가 1회인 경우
-                    ta.append("다시 입력하세요.(기회: 2번 남음)\n");}
+                    ta.append("다시 입력하세요.(기회: 2번 남음)\n");
+                }
 
 
                 if (incorrectCount == 2) { // 어긋난 횟수가 1회인 경우
-                    ta.append("다시 입력하세요.(기회: 1번 남음)\n");}
+                    ta.append("다시 입력하세요.(기회: 1번 남음)\n");
+                }
 
                 if (incorrectCount >= 3) { // 어긋난 횟수가 3회 이상인 경우
                     ClientWinMsg++;
                     ta.append("당신이 졌습니다.\n"); // 게임 종료 메시지
 
-
-                } else {
-//                    ta.append("다시 입력하세요.\n");
+                    if (ClientWinMsg > 0) {
+                        try {
+                            out.write("이겼습니다!\n");
+                            out.flush();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
                 }
             }
+
         }
         tf.setText("");
         tf.requestFocus();
@@ -186,13 +181,18 @@ public class ChatServerFrame extends JFrame implements ActionListener {
 
             while(true) {
                 String inMsg = in.readLine();
-                ta.append("[클라이언트]: " + inMsg + "\n"); // 클라이언트에서 보내온 단어 채팅창에 표시하는 부분
-                nowMsg = inMsg; // nowMsg 메소드에 클라이언트가 보내온 단어 담아줌
+                if(inMsg.equals("이겼습니다!")) {
+                    ta.append("당신이 이겼습니다!");
+                } else if (!inMsg.equals("이겼습니다!")) {
+                    ta.append("[클라이언트]: " + inMsg + "\n"); // 클라이언트에서 보내온 단어 채팅창에 표시하는 부분
+                    nowMsg = inMsg; // nowMsg 메소드에 클라이언트가 보내온 단어 담아줌
 
-                // 클라이언트가 보내온 단어 마지막 글자 알려주는 가이드
-                lastCharacter = getLastCharacter(String.valueOf(inMsg));
-                String nextWordPrompt = "다음 단어를 입력하세요 (끝말: " + lastCharacter.toString() + ")" + "\n";
-                ta.append(nextWordPrompt);
+                    // 클라이언트가 보내온 단어 마지막 글자 알려주는 가이드
+                    lastCharacter = getLastCharacter(String.valueOf(inMsg));
+                    String nextWordPrompt = "다음 단어를 입력하세요 (끝말: " + lastCharacter.toString() + ")" + "\n";
+                    ta.append(nextWordPrompt);
+                }
+
 
 
             }
@@ -217,13 +217,4 @@ public class ChatServerFrame extends JFrame implements ActionListener {
     public String nowMsg() { // 클라이언트에서 보내온 단어 가져오는 메소드
         return nowMsg;
     }
-
-    public int ClientWinMsg() {
-        return ClientWinMsg;
-    }
-
-
-
-
-
 }
